@@ -1,0 +1,37 @@
+{
+  "name": "libraly",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build": "rollup -c rollup.config.js",
+    "test": "rollup -c rollup.config.js --test"
+  },
+  "author": "",
+  "devDependencies": {
+    "@rollup/plugin-buble": "^0.21.3",
+    "@rollup/plugin-commonjs": "^11.0.2",
+    "@rollup/plugin-node-resolve": "^7.1.1",
+    "@rollup/plugin-typescript": "^8.2.1",
+    "rollup": "^1.32.1",
+    "rollup-plugin-terser": "^7.0.0",
+    "tslib": "^2.2.0",
+    "typescript": "^4.3.2"
+  },
+  "dependencies": {
+    "@tawaship/pixim.js": "1.13.1",
+    "pixi.js": "^5.3.2"
+  },
+  "directories": {
+    "lib": "lib"
+  },
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/synksugita/libraly.git"
+  },
+  "bugs": {
+    "url": "https://github.com/synksugita/libraly/issues"
+  },
+  "homepage": "https://github.com/synksugita/libraly#readme",
+  "description": ""
+}
