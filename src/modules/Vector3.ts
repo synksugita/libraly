@@ -1,4 +1,4 @@
-export class Vector3D{
+export class Vector3{
     public x:number;
     public y:number;
     public z:number;
@@ -19,13 +19,13 @@ export class Vector3D{
         this.z=vector.z;
         return this;
     }
-    add(vector:{x:number,y:number,z:number}){return this.copy(Vector3D.add(this,vector))}
-    sub(vector:{x:number,y:number,z:number}){return this.copy(Vector3D.sub(this,vector))}
-    mul(scalar:number){return this.copy(Vector3D.mul(this,scalar))}
-    dev(scalar:number){return this.copy(Vector3D.dev(this,scalar))}
-    distance(){return Vector3D.distance(this)}
+    add(vector:{x:number,y:number,z:number}){return this.copy(Vector3.add(this,vector))}
+    sub(vector:{x:number,y:number,z:number}){return this.copy(Vector3.sub(this,vector))}
+    mul(scalar:number){return this.copy(Vector3.mul(this,scalar))}
+    dev(scalar:number){return this.copy(Vector3.dev(this,scalar))}
+    distance(){return Vector3.distance(this)}
     static create(x:number,y:number,z:number){
-        return new Vector3D(x,y,z);
+        return new Vector3(x,y,z);
     }
     static add(vector1:{x:number,y:number,z:number},vector2:{x:number,y:number,z:number}){
         return this.create(vector1.x+vector2.x,vector1.y+vector2.y,vector1.z+vector2.z);

@@ -1,30 +1,30 @@
 import * as PIXI from "pixi.js";
 export class NumberSprite extends PIXI.Container{
     protected interval:number;
-    private value:number;
-    private textures:PIXI.Texture[];
-    private anchor:{x:number,y:number};
-    private sprites:PIXI.Sprite[];
-    private spriteContainer:PIXI.Container;
-    constructor(textures:PIXI.Texture[]){
+    protected value:string|number;
+    protected readonly textures:readonly PIXI.Texture[];
+    protected readonly pivotRate:{x:number,y:number};
+    protected readonly sprites:PIXI.Sprite[];
+    protected readonly spriteContainer:PIXI.Container;
+    constructor(textures:readonly PIXI.Texture[]){
         super();
 
         this.interval=0;
         this.value=0;
         this.textures=textures;
-        this.anchor={x:0,y:0};
+        this.pivotRate={x:0,y:0};
         this.sprites=[];
         this.spriteContainer=new PIXI.Container();
         this.addChild(this.spriteContainer);
     }
-    private updateAnchor(){
-        this.spriteContainer.pivot.set(this.spriteContainer.width*this.anchor.x,this.spriteContainer.height*this.anchor.y);
+    protected updatePivotRate(){
+        this.spriteContainer.pivot.set(this.spriteContainer.width*this.pivotRate.x,this.spriteContainer.height*this.pivotRate.y);
     }
-    private createSprite(index:number){
+    protected createSprite(index:number){
         const sprite=new PIXI.Sprite(this.textures[index]);
         return sprite;
     }
-    private createSprites(value:number){
+    protected createSprites(value:string|number){
         this.sprites.length=0;
         this.spriteContainer.removeChildren();
         for(let i=0,s=""+value,x=0;i<s.length;i++){
@@ -34,17 +34,17 @@ export class NumberSprite extends PIXI.Container{
             this.spriteContainer.addChild(sprite);
             x+=this.interval;
         }
-        this.updateAnchor();
+        this.updatePivotRate();
     }
     getValue(){
         return this.value;
     }
-    setValue(value:number){
+    setValue(value:string|number){
         this.value=value;
         this.createSprites(value);
     }
-    setAnchor(x=0,y=x){
-        this.anchor.x=x,this.anchor.y=y;
-        this.updateAnchor();
+    setPivotRate(x=0,y=x){
+        this.pivotRate.x=x,this.pivotRate.y=y;
+        this.updatePivotRate();
     }
 }
